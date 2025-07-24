@@ -1,0 +1,11 @@
+[Unit]
+Description=Physlock tty screen lock that mimics the login screen
+Before=systemd-suspend.service systemd-hibernate.service systemd-suspend-then-hibernate.service
+
+[Install]
+WantedBy=suspend.target hibernate.target
+
+[Service]
+Type=forking
+ExecStart=physlock -dm -b 'printf "\033c"; agetty --show-issue; echo "$(cat /etc/hostname) login: $(whoami)"'
+ExecStopPost=brightnessctl -r
