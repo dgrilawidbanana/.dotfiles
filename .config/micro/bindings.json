@@ -1,0 +1,7 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Ctrl-W": "DeleteWordLeft",
+    "CtrlUnderscore": "lua:comment.comment",
+    "Shift-MouseWheelDown": "CursorRight,CursorRight,CursorRight,CursorRight",
+    "Shift-MouseWheelUp": "CursorLeft,CursorLeft,CursorLeft,CursorLeft"
+}
