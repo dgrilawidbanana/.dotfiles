@@ -7,8 +7,8 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias config='/usr/bin/git --git-dir=/home/dgrilawidbanana/.dotfiles/ --work-tree=/home/dgrilawidbanana'
+
 PS1='[\u@\h \W]\$ '
 
 fastfetch
-alias config='/usr/bin/git --git-dir=/home/dgrilawidbanana/.dotfiles/ --work-tree=/home/dgrilawidbanana'
-alias config='/usr/bin/git --git-dir=/home/dgrilawidbanana/.dotfiles/ --work-tree=/home/dgrilawidbanana'

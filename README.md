@@ -1,7 +1,8 @@
 These are the dotfiles for my Arch + Hyprland setup. It's currently minimal (read: unstyled) but feature-complete enough for daily use—at least for me.
 
-# Installation
-```
+## Installation
+
+```bash
 git clone --bare https://github.com/dgrilawidbanana/.dotfiles.git $HOME/.dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config checkout
@@ -9,8 +10,9 @@ config config --local status.showUntrackedFiles no
 sudo ~/.dotfiles/install.sh
 ```
 
-# Usage
-```
+## Usage
+
+```bash
 config pull                       # Sync with remote
 config add .bashrc                # Stage a file
 config rm .vimrc                  # Stop tracking a file
