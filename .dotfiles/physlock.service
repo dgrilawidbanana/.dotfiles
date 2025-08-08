@@ -8,4 +8,4 @@ WantedBy=suspend.target hibernate.target
 [Service]
 Type=forking
 ExecStart=physlock -dm -b 'printf "\033c"; agetty --show-issue; echo "$(cat /etc/hostname) login: $(whoami)"'
-ExecStopPost=brightnessctl -r
+ExecStopPost=sh -c 'XDG_RUNTIME_DIR="/run/user/$(loginctl list-users -j | jq "first(.[] | select(.state == \\"active\\")).uid")" brightnessctl -r'

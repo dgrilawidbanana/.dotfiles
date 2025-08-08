@@ -1,0 +1,124 @@
+@import url('./style-common.css');
+
+@define-color base         #f0f0f0;
+@define-color warning      #ff8000;
+@define-color critical     #ff0000;
+
+@define-color active       #101010;
+@define-color inactive     #808080;
+
+@define-color red          #800000;
+@define-color green        #008000;
+@define-color blue         #000080;
+@define-color yellow       #808000;
+@define-color purple       #400080;
+
+@define-color muted_red    #c08080;
+@define-color muted_green  #80c080;
+@define-color muted_yellow #c0c080;
+
+.module {
+	color: @base;
+}
+
+#workspaces button {
+	background: @red;
+	color: @muted_red;
+}
+
+#workspaces button.active {
+	color: @base;
+}
+
+#workspaces button.urgent {
+	color: @critical;
+}
+
+#workspaces button:hover {
+	background: @base;
+	color: @red;
+}
+
+#cpu {
+	background: @green;
+}
+
+#memory {
+	background: @purple;
+}
+
+#clock {
+	background: @blue;
+}
+
+#mpris {
+	background: @green;
+}
+
+#mpris.paused {
+	background: @muted_green;
+}
+
+#pulseaudio {
+	background: @yellow;
+}
+
+#pulseaudio.muted {
+	background: @muted_yellow;
+}
+
+#network {
+	background: @blue;
+}
+
+#network.disconnected {
+	background: @critical;
+}
+
+#battery {
+	background: @blue;
+}
+
+#battery.charging {
+	background: @green;
+}
+
+#battery.warning:not(.charging) {
+	background: @warning;
+}
+
+#battery.critical:not(.charging) {
+	background: @critical;
+}
+
+#power-profiles-daemon.power-saver {
+	background: @green;
+}
+
+#power-profiles-daemon.balanced {
+	background: @blue;
+}
+
+#power-profiles-daemon.performance {
+	background: @red;
+}
+
+#idle_inhibitor {
+	background: @inactive;
+}
+
+#idle_inhibitor.activated {
+	background: @active;
+}
+
+#tray {
+	background: @blue;
+}
+
+#tray > .needs-attention {   
+   	background: @critical;
+}
+
+#custom-power {
+	background: @critical;
+}

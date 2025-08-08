@@ -1,0 +1,7 @@
+background-color = #3333ff
+text-color = #f0f0f0
+selection-background = #f0f0f0
+selection-color = #3333ff
+selection-background-padding = 0, 10000
+text-cursor = true
+text-cursor-style = block

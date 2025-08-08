@@ -1,0 +1,19 @@
+# Font
+font = "Jetbrains Mono"
+font-size = 13
+
+# Window layout
+width = 50%
+height = 50%
+corner-radius = 10
+border-width = 0
+outline-width = 0
+
+# Colors
+include = ./theme-colors
+
+# Behavior
+matching-algorithm = fuzzy
+fuzzy-match = true
+auto-accept-single = true
+drun-launch = true
