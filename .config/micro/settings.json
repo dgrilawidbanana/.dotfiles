@@ -1,4 +1,8 @@
 {
-    "diffgutter": true,
-    "mkparents": true
+	"colorscheme": "simple",
+	"diffgutter": true,
+	"ftoptions": false,
+	"hltaberrors": true,
+	"hltrailingws": true,
+	"mkparents": true
 }

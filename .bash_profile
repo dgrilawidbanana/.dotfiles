@@ -4,4 +4,6 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-exec hyprland > /dev/null
+if [[ -z "$SSH_CONNECTION" ]] && [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ $(tty) == "/dev/tty1" ]]; then
+	exec hyprland > /dev/null
+fi

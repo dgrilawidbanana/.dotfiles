@@ -1,0 +1,13 @@
+[user]
+	name = dgrilawidbanana
+	email = dgrilawidbanana@gmail.com
+[help]
+	autocorrect = 30
+[diff]
+	algorithm = histogram
+[merge]
+	conflictStyle = zdiff3
+[rebase]
+	autosquash = true
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
