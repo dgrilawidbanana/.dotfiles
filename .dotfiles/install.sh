@@ -24,7 +24,7 @@ fi
 
 printf "\e[1;32m[*]\e[0m Installing necessary packages\n"
 yay -Syu --noconfirm --removemake
-yay -S --needed --noconfirm --removemake archlinux-xdg-menu brightnessctl cliphist dolphin fastfetch fcitx5-im fcitx5-rime hypridle hyprland hyprpicker hyprpolkitagent hyprshot keepassxc kitty mako micro noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nsxiv pavucontrol physlock-dexterlb-git pipewire-pulse power-profiles-daemon pyenv qt5-wayland tk tofi ttf-jetbrains-mono vivaldi waybar wireplumber woff2 woff2-font-awesome xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+yay -S --needed --noconfirm --removemake archlinux-xdg-menu brightnessctl cliphist dolphin fastfetch fcitx5-im fcitx5-rime hypridle hyprland hyprpicker hyprpolkitagent hyprshot keepassxc kitty mako micro noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nsxiv pavucontrol physlock-dexterlb-git pipewire-pulse power-profiles-daemon pyenv qt5-wayland swww tk tofi ttf-jetbrains-mono vivaldi waybar wireplumber woff2 woff2-font-awesome xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 printf "\e[1;32m[*]\e[0m Adding ~/.local/bin to default path\n"
 sudo ln -fs "$script_dir/user-local-bin.sh" /etc/profile.d/user-local-bin.sh
@@ -96,5 +96,16 @@ for file in /usr/share/fonts/WOFF2/*.woff2; do
 	sudo mv "/usr/share/fonts/WOFF2/$(basename "$file" .woff2).ttf" /usr/share/fonts/TTF/
 done
 fc-cache -fv
+
+printf "\e[1;32m[*]\e[0m Setting GTK system scheme to light\n"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+gsettings set org.gnome.desktop.interface gtk-theme 'Default'
+
+swww-daemon &> /dev/null & sleep 0.2
+if [[ $(swww query) != *"image"* ]]; then
+	printf "\e[1;32m[*]\e[0m Setting random wallpaper\n"
+	wallpapers=("$HOME/Pictures/wallpapers/light"/*)
+	swww img "${wallpapers[RANDOM % ${#wallpapers[@]}]}"
+fi
 
 printf "\e[1;32m[*]\e[0m Installation complete. You may need to re-login for some changes to take effect.\n"
