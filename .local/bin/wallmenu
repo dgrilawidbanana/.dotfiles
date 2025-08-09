@@ -36,11 +36,13 @@ def get_wallpapers():
 
 
 def pick_wallpaper(wallpapers):
-	options = (
-		["random", "random dark", "random light"]
-		+ wallpapers["dark"]
-		+ wallpapers["light"]
-	)
+	options = [
+		"random",
+		"random dark",
+		"random light",
+		*wallpapers["dark"],
+		*wallpapers["light"],
+	]
 
 	choice = menu(options)
 	if not choice:
@@ -88,15 +90,24 @@ def update_system_theme(theme):
 	)
 
 
-def update_tofi_theme(theme):
-	source = f"{theme}-colors"
-	destination = CONFIG_PATH / "tofi/theme-colors"
+def update_app_theme(app, theme, extension=""):
+	source = f"{theme}-colors{extension}"
+	destination = CONFIG_PATH / f"{app}/theme-colors{extension}"
 	if destination.exists():
 		destination.unlink()
 	destination.symlink_to(source)
 
 
-def update_waybar_theme(theme):
+def update_mako_theme(theme):
+	update_app_theme("mako", theme)
+	subprocess.run(["makoctl", "reload"])
+
+
+def update_tofi_theme(theme):
+	update_app_theme("tofi", theme)
+
+
+def update_waybar_theme():
 	subprocess.run(["pkill", "waybar"])
 	subprocess.Popen(["waybar"], start_new_session=True)
 
@@ -117,8 +128,9 @@ def main():
 		).stdout
 	):
 		update_system_theme(theme)
-		update_waybar_theme(theme)
-	update_tofi_theme(theme)
+		update_waybar_theme()
+		update_mako_theme(theme)
+		update_tofi_theme(theme)
 
 
 if __name__ == "__main__":
