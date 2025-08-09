@@ -2,6 +2,8 @@ These are the dotfiles for my Arch + Hyprland setup. They're not exactly pretty,
 
 ## Installation
 
+> Note: this will overwrite any conflicting files in your home directory! Run `config checkout` to see which files will be overwritten and back them up before running `config checkout --force`.
+
 ```bash
 git clone --bare https://github.com/dgrilawidbanana/.dotfiles.git "$HOME/.dotfiles"
 alias config='git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
@@ -14,6 +16,7 @@ config config --local status.showUntrackedFiles no
 
 ```bash
 config pull                       # Pull from remote
+~/.dotfiles/install.sh            # Install updates
 config add .bashrc                # Track a file
 config rm --cached .vimrc         # Untrack a file
 config status                     # Show local changes
@@ -23,6 +26,8 @@ config push                       # Push to remote
 
 ## Features
 
+- [swww](https://github.com/LGFae/swww)
+  - Efficient animated wallpaper daemon
 - [Waybar](https://github.com/Alexays/Waybar)
   - System tray, media player controller, clock, and more
 - [tofi](https://github.com/philj56/tofi)
