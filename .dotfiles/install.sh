@@ -24,7 +24,7 @@ fi
 
 printf "\e[1;32m[*]\e[0m Installing necessary packages\n"
 yay -Syu --noconfirm --removemake
-yay -S --needed --noconfirm --removemake archlinux-xdg-menu brightnessctl cliphist dolphin fastfetch fcitx5-im fcitx5-rime hypridle hyprland hyprpicker hyprpolkitagent hyprshot keepassxc kitty mako micro noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nsxiv pavucontrol physlock-dexterlb-git pipewire-pulse power-profiles-daemon pyenv qt5-wayland awww tk tofi ttf-jetbrains-mono vivaldi waybar wireplumber woff2 woff2-font-awesome xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+yay -S --needed --noconfirm --removemake archlinux-xdg-menu awww brightnessctl cliphist dolphin fastfetch fcitx5-im fcitx5-rime hypridle hyprland hyprpicker hyprpolkitagent hyprshot keepassxc kitty less mako micro noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nsxiv openssh pavucontrol physlock-dexterlb-git pipewire-pulse power-profiles-daemon pyenv qt5-wayland tk tofi ttf-jetbrains-mono vivaldi waybar wireplumber woff2 woff2-font-awesome xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 printf "\e[1;32m[*]\e[0m Adding ~/.local/bin to default path\n"
 sudo ln -fs "$script_dir/user-local-bin.sh" /etc/profile.d/user-local-bin.sh
